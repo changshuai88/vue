@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue3.js"></script>
+</head>
+
+<body>
+    <div id="counter">
+        <h1>counter:{{ num }}</h1>
+    </div>
+
+    <script>
+        // 配置个对象
+        const Counter = {
+            // 1.第一种写法
+            // data:function(){
+            //     return{
+            //         num:0
+            //     }
+            // }
+            // 2.第二种写法，一般用第二种简单一些。
+            data() {
+                return {
+                    num: 0
+                }
+            }
+        }
+        // 将上面定义的对象放入vue的createApp方法中作为参数
+        // 创建一个应用，将配置的对象counter的内容渲染到选择器是#counter元素上
+        let app = Vue.createApp(Counter).mount("#counter");
+        console.log(app);
+    </script>
+</body>
+
+</html>
