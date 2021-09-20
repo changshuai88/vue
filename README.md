@@ -12,3 +12,27 @@ Vite 是一个 web 开发构建工具，由于其原生 ES 模块导入方式，
 - cd vue3demo02 //定位到创建的demo文件夹
 - npm install  //安装相关文件
 - npm run dev  //运行--生成链接地址
+
+### 3.声明式
+```
+export default {
+  name: 'App',
+  data(){
+    return {
+      msg:"hello world"
+    }
+  }
+}
+```
+### 4.命令式
+`document.querySelector("").innerHTML="你好";`
+
+### 5.数据双向绑定
+
+-----
+# Vue简介
+1.JavaScript框架
+2.简化DOM操作
+3.响应式数据驱动
+
+##   
