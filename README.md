@@ -28,11 +28,6 @@ export default {
 `document.querySelector("").innerHTML="你好";`
 
 ### 5.数据双向绑定
+页面会根据数据的变化而发生变化。
+不需要刷新页面就能够实现。
 
------
-# Vue简介
-1.JavaScript框架
-2.简化DOM操作
-3.响应式数据驱动
-
-##   
