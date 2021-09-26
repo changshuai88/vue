@@ -33,3 +33,13 @@ export default {
 
 ### 6.写简单的小组件的时候用Vue2的写法是最简单的，以后写高级的会用vue3的写法
 
+- 双大括号是插入字符串
+- v-once指令，使得内容只渲染一次
+- v-html指令，使得内容插入html代码
+- v-bind指令，绑定属性的内容
+
+  ***如果在一个机器上写完项目上传到git，在从另一台机器从git下载后不能使用npm run dev 请如下操作***
+  - npm cache verify
+  - npm install
+  - 再npm run dev 就行了。
+  
