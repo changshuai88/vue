@@ -42,4 +42,13 @@ export default {
   - npm cache verify
   - npm install
   - 再npm run dev 就行了。
-  
+### 7.JavaScript表达式可以在模板中使用
+ 模板中还可以使用三元运算 这里只能放置一个表达式，不能放置多个。只能放置一个简单的表达式
+
+### 8.动态指令
+arrtibuteName 为自定义随机变量名 id为自定义随机变量名
+`<div v-bind:[arrtibuteName]="id"></div>`
+`<button @click="toggleType">更改选择器名</button>`
+
+### 9.计算属性 computed:
+在computed:后面类似methods一样写入方法,但是这个是直接返回值,不用另外调用.
