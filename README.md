@@ -57,15 +57,18 @@ arrtibuteName 为自定义随机变量名 id为自定义随机变量名
 
 在watch：{
   要监听的变量名：方法（）{}
-}
+  }
+
 ### 11.类和样式绑定
-<!-- 类class -->
+类class
 第一种写法放置字符串
-<!-- <h1 :class="msg">hello</h1> -->
+`<h1 :class="msg">hello</h1>`
 第二种写法，放置对象
-<!-- <h1 :class="{active:isActive}">hello2</h1> -->
-<!-- <button @click="toggleActive">切换active</button> -->
+`<h1 :class="{active:isActive}">hello2</h1>`
+`<button @click="toggleActive">切换active</button>`
 第三种写法，放置数组
-<!-- <h1 :class="arr">hello3</h1> -->
+`<h1 :class="arr">hello3</h1>`
 第四种写法，数组和对象的结合 数组种可以是字符串也可以是变量
-<!-- <h1 :class="['abc',{active:true},className]">hello4</h1> -->
+`<h1 :class="['abc',{active:true},className]">hello4</h1>`
+
+### 12.绑定内联样式
