@@ -1,10 +1,15 @@
 <template>
-<!-- 计算属性 -->
-  <h1  class="d1">{{msg.split('').reverse().join('')}}</h1>
-  <h1  class="d1">{{reverseMsg}}</h1>
+<!-- 类class -->
+<!-- 第一种写法放置字符串 -->
+<h1 :class="msg">hello</h1>
+<!-- 第二种写法，放置对象 -->
+<h1 :class="{active:isActive}">hello2</h1>
+<button @click="toggleActive">切换active</button>
+<!-- 第三种写法，放置数组 -->
+<h1 :class="arr">hello3</h1>
+<!-- 第四种写法，数组和对象的结合 数组种可以是字符串也可以是变量-->
+<h1 :class="['abc',{active:true},className]">hello4</h1>
 
-
- 
 
 </template>
 
@@ -16,27 +21,28 @@ export default {
   // 用到的变量
   data(){
     return{
-      msg:'helloworld'
+      msg:'helloworld',
+      isActive:true,
+      arr:['swiper','active'],
+      className:'d1'
     }
   },
-  // 计算属性
-  computed:{
-    reverseMsg(){
-      // 这里调用msg变量需要加this
-      return this.msg.split('').reverse().join('');
-    }
-  },
-  // 用到的方法
   methods:{
-    toggleType(){
-      this.arrtibuteName='id'
+    toggleActive:function(){
+      this.isActive=!this.isActive;
+      this.arr.pop()
     }
   }
   
+  
+ 
 }
 </script>
 
 <style >
+.active{
+  background: gold;
+}
 #d1{
   width: 100px;
   height: 100px;

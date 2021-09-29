@@ -52,3 +52,20 @@ arrtibuteName 为自定义随机变量名 id为自定义随机变量名
 
 ### 9.计算属性 computed:
 在computed:后面类似methods一样写入方法,但是这个是直接返回值,不用另外调用.
+
+### 10. 观察者watch:
+
+在watch：{
+  要监听的变量名：方法（）{}
+}
+### 11.类和样式绑定
+<!-- 类class -->
+第一种写法放置字符串
+<!-- <h1 :class="msg">hello</h1> -->
+第二种写法，放置对象
+<!-- <h1 :class="{active:isActive}">hello2</h1> -->
+<!-- <button @click="toggleActive">切换active</button> -->
+第三种写法，放置数组
+<!-- <h1 :class="arr">hello3</h1> -->
+第四种写法，数组和对象的结合 数组种可以是字符串也可以是变量
+<!-- <h1 :class="['abc',{active:true},className]">hello4</h1> -->
