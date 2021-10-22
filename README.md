@@ -58,7 +58,7 @@ arrtibuteName 为自定义随机变量名 id为自定义随机变量名
 在watch：{
   要监听的变量名：方法（）{}
 }
-### 11.类和样式绑定
+### 11.类和样式绑定 class
 <!-- 类class -->
 第一种写法放置字符串
 <!-- <h1 :class="msg">hello</h1> -->
@@ -69,3 +69,28 @@ arrtibuteName 为自定义随机变量名 id为自定义随机变量名
 <!-- <h1 :class="arr">hello3</h1> -->
 第四种写法，数组和对象的结合 数组种可以是字符串也可以是变量
 <!-- <h1 :class="['abc',{active:true},className]">hello4</h1> -->
+
+### 绑定内联样式 style
+
+1.若是样式名是由-连接的多个单词，需要加引号 'background-color':'orange'
+2.也可也采用驼峰命名法 backgroundColor:'gold'
+              
+### 条件渲染
+1. v-if
+v-if
+v-else-if
+v-else
+只会显示满足条件的代码
+```
+<h1 v-if="user=='超级vip'">欢迎有钱人</h1>
+<h1 v-else-if="user=='vip' ">欢迎会员登陆</h1>
+<h1 v-else>充值会让你更强大</h1>
+```
+2.v-show
+v-show = bool值
+真就显示，假就不显示
+`<h1 v-show="isShow">切换显示内容</h1>`
+
+3. v-for
+  
+

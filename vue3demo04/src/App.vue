@@ -1,16 +1,7 @@
 <template>
-<!-- 类class -->
-<!-- 第一种写法放置字符串 -->
-<h1 :class="msg">hello</h1>
-<!-- 第二种写法，放置对象 -->
-<h1 :class="{active:isActive}">hello2</h1>
-<button @click="toggleActive">切换active</button>
-<!-- 第三种写法，放置数组 -->
-<h1 :class="arr">hello3</h1>
-<!-- 第四种写法，数组和对象的结合 数组种可以是字符串也可以是变量-->
-<h1 :class="['abc',{active:true},className]">hello4</h1>
-
-
+  <ol>
+    <li v-for="(item,i) in news" :key="i">{{item}}===>{{i}}</li>
+  </ol>
 </template>
 
 <script>
@@ -21,17 +12,21 @@ export default {
   // 用到的变量
   data(){
     return{
-      msg:'helloworld',
-      isActive:true,
-      arr:['swiper','active'],
-      className:'d1'
+      news:[
+      'v-once指令，使得内容只渲染一次',
+      'v-html指令，使得内容插入html代码',
+      'v-bind指令，绑定属性的内容'
+      ]
     }
   },
   methods:{
-    toggleActive:function(){
-      this.isActive=!this.isActive;
-      this.arr.pop()
+    toggloUser:function(){
+      this.user='普通用户'
+    },
+    toggloShow:function(){
+      this.isShow =!this.isShow;
     }
+
   }
   
   
