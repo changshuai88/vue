@@ -1,0 +1,3 @@
+<template>
+    <h1>这是footer部分</h1>
+</template>

@@ -94,5 +94,90 @@ v-show = bool值
 `<h1 v-show="isShow">切换显示内容</h1>`
 
 3. v-for
- 
+news为数组，也可以为对象
+`<li v-for="(item,i) in news" :key="i">{{item}}===>{{i}}</li>`
+
+4.v-for   of 
+`<li v-for="(item,i) of cjs" :key="i">{{i}}=>{{ item}}</li>`
+
+# 事件绑定
+## 事件监听
+我们可以使用 v-on 指令 (通常缩写为 @ 符号) 来监听 DOM 事件，并在触发事件时执行一些 JavaScript。用法为 v-on:click="methodName" 或使用快捷方式 @click="methodName"
+
+* 一个事件绑定两个方法的时候，方法要加括号 *
+### 事件修饰符
+- .stop
+- .prevent
+- .capture
+- .self
+- .once
+- .passive
+### 按键别名
+Vue 为最常用的键提供了别名：
+
+.enter
+.tab
+.delete (捕获“删除”和“退格”键)
+.esc
+.space
+.up
+.down
+.left
+.right
+
+### 系统修饰键
+可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
+
+.ctrl
+.alt
+.shift
+.meta
+### 鼠标按键修饰符
+.left/.right/.middle
+
+## 表单输入绑定
+https://v3.cn.vuejs.org/guide/forms.html#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95
+
+# 组件
+* 语法
+  1.先在components文件夹创建以大写字母开头的Name.vue文件，代码如下：
+```
+  <template>
+    <h1>{{msg}}这是主体部分</h1>
+  </template>
+  <script>
+  export default {
+    setup() {
+        return{
+            msg:"hello"
+        }
+    },
+  }
+  </script>
+```
+2.在引入文件中需要写三个位置的代码，组件可以重复导入，如下：
+```
+<template>
+<Header></Header>
+<Header></Header>
+<Header></Header>
+</template>
+<script>
+
+// 导入Header.vue组件
+import Header from './components/Header.vue'
+export default {
+  name: 'App',
+  // 用到的变量
+  data(){
+    return{
+      
+      }
+  },
+  components:{
+    Header,Main,Footer
+  }
+}
+</script>
+```
 
