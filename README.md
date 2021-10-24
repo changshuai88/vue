@@ -59,9 +59,6 @@ arrtibuteName 为自定义随机变量名 id为自定义随机变量名
   要监听的变量名：方法（）{}
 <<<<<<< HEAD
 }
-### 11.类和样式绑定 class
-
-
 ### 11.类和样式绑定
 类class
 >>>>>>> 3b83f10db48e7118cd2c2117912d184a9a012de8
@@ -73,8 +70,7 @@ arrtibuteName 为自定义随机变量名 id为自定义随机变量名
 第三种写法，放置数组
 `<h1 :class="arr">hello3</h1>`
 第四种写法，数组和对象的结合 数组种可以是字符串也可以是变量
-<<<<<<< HEAD
-<!-- <h1 :class="['abc',{active:true},className]">hello4</h1> -->
+`<h1 :class="['abc',{active:true},className]">hello4</h1>`
 
 ### 绑定内联样式 style
 
@@ -98,10 +94,5 @@ v-show = bool值
 `<h1 v-show="isShow">切换显示内容</h1>`
 
 3. v-for
-  
+ 
 
-=======
-`<h1 :class="['abc',{active:true},className]">hello4</h1>`
-
-### 12.绑定内联样式
->>>>>>> 3b83f10db48e7118cd2c2117912d184a9a012de8
