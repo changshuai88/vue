@@ -202,3 +202,11 @@ setup(){
 </template>
 ```
 好处：可以方便的处理单块代码，便于维护。
+### 参数引入
+- import {ref,reactive} from 'vue'
+- ref ，使一个值，数字，字符串 变成响应式
+- reactive，使对象变成响应式
+- toRefs,把对象的对象名省略。
+- computed
+- watchEffect 响应式监听，数据发生改变,用到那个参数就监听那个参数
+- watch  监听，监听某个(些)参数改变，引入参数，后面加回调。
