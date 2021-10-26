@@ -1,52 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld v-if="isShow" :msg="msg" />
-  <button @click="changeEvent">点击修改msg</button>
+  
+  <h1 @click="changeEvent">计数：{{ count }}</h1>
+  <h1 @click="changeNum">计数：{{ num }}</h1>
+
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {ref} from 'vue'
 export default {
   name: 'App',
   data(){
+    console.log('data');
     return{
-      msg:"cjs",
+      count:"",
       isShow:true
     }
   },
   methods:{
     changeEvent(){
-      this.msg="cyu";
-      this.isShow=!this.isShow;
+      this.count++;
     }
   },
-  components: {
-    HelloWorld
+  setup(){
+    console.log('setup');
+    const num=ref(0);
+    
+    function changeNum(){
+      num.value+=10;
+    };
+    return {num,changeNum};
   },
-  // beforeCreate(){
-  //   console.log("beforeCreate:初始化数据之前");
-  // },
-  // created(){
-  //   console.log("created:初始化数据之后");
-  // },
-  // beforeMount(){
-  //   console.log("beforeMount:挂载渲染之前");
-  // },
-  // mounted(){
-  //   console.log("Mounted:挂载渲染之后");
-  // },
-  // beforeUpdate(){
-  //   console.log("beforeUpdate:更新之前");
-  // },
-  // updated(){
-  //   console.log("updated:更新之后");
-  // },
-  // beforeUnmount(){
-  //   console.log("beforeUnmount:销毁之前");
-  // },
-  // unmounted(){
-  //   console.log("unmounted:销毁之后");
-  // }
+  beforeCreate(){
+    console.log("beforeCreate:初始化数据之前");
+  },
+  created(){
+    console.log("created:初始化数据之后");
+  },
+  beforeMount(){
+    console.log("beforeMount:挂载渲染之前");
+  },
+  mounted(){
+    console.log("Mounted:挂载渲染之后");
+  }
+ 
 }
 </script>

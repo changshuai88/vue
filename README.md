@@ -181,3 +181,24 @@ export default {
 </script>
 ```
 
+# API
+
+## setup 函数
+目的，为了让数据和方法等相关代码放在一起。
+```
+setup(){
+    console.log('setup');
+    const num=ref(0);
+    
+    function changeNum(){
+      num.value+=10;
+    };
+    return {num,changeNum};
+  },
+```
+```
+<template>
+  <h1 @click="changeNum">计数：{{ num }}</h1>
+</template>
+```
+好处：可以方便的处理单块代码，便于维护。
