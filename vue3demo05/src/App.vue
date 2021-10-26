@@ -11,11 +11,13 @@
   <h1>学校：{{ school }}</h1>
   <button @click="changeSchool">更改学校</button>
   <h1>学校反转{{reverseSchool}}</h1>
-  
+  <User :userName='userName' :age='age' class='abc' />
 </template>
 
 <script>
 import {ref,reactive,toRefs,computed,watchEffect,watch} from 'vue'
+import User from './components/User.vue'
+
 export default {
   name: 'App',
   data(){
@@ -29,6 +31,9 @@ export default {
     changeEvent(){
       this.count++;
     }
+  },
+  components:{
+      User
   },
   setup(){
     console.log('setup');
