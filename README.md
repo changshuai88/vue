@@ -210,3 +210,39 @@ setup(){
 - computed
 - watchEffect 响应式监听，数据发生改变,用到那个参数就监听那个参数
 - watch  监听，监听某个(些)参数改变，引入参数，后面加回调。
+### provide  inject
+在父组件中用provide
+```
+import {ref,reactive,toRefs,computed,watchEffect,watch,provide} from 'vue'
+//student 为要传给子组件的数据
+const student=reactive({
+      name:'小红',
+      className:'三年五班'
+    })
+provide('student',student)
+```
+在子组件中用inject
+```
+<template>
+    <h1>学生</h1>
+    <h1>name:{{name}}</h1>  //name为父组件中student对象的属性名
+    <h1>className :{{className}}</h1>
+</template>
+<script>
+import {ref,onBeforeMount,onMounted,onBeforeUpdate,onUnmounted,inject} from 'vue'
+export default {
+    setup(props,content) {
+        const student=inject('student')
+        return {...student};
+    },
+    props:['userName','age']
+}
+</script>
+```
+# 路由
+安装的时候除了安装原来的依赖包之外还要安装路由
+终端安装
+npm install vue-router@4
+若是不成功，可以重新安装以下代码，再安装路由
+cnpm install
+cnpm install vue-router@4

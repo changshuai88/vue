@@ -12,11 +12,13 @@
   <button @click="changeSchool">更改学校</button>
   <h1>学校反转{{reverseSchool}}</h1>
   <User :userName='userName' :age='age' class='abc' />
+  <Student />
 </template>
 
 <script>
-import {ref,reactive,toRefs,computed,watchEffect,watch} from 'vue'
+import {ref,reactive,toRefs,computed,watchEffect,watch,provide} from 'vue'
 import User from './components/User.vue'
+import Student from './components/Student.vue'
 
 export default {
   name: 'App',
@@ -33,7 +35,7 @@ export default {
     }
   },
   components:{
-      User
+      User,Student
   },
   setup(){
     console.log('setup');
@@ -46,6 +48,7 @@ export default {
         return user.school.split('').reverse().join('');
       })
     })
+    
     function changeNum(){
       num.value+=10;
     }
@@ -66,6 +69,11 @@ export default {
       console.log(prevNum);
       console.log('多个监听，就是watch监听第一个参数变成数组');
     })
+    const student=reactive({
+      name:'小红',
+      className:'三年五班'
+    })
+    provide('student',student)
     return {num,changeNum,user,...toRefs(user),changeSchool};
   },
   beforeCreate(){
