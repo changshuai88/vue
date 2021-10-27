@@ -388,3 +388,76 @@ export default {
 `this.$router.push({name:'news',params:{id:123456}})`
 5.返回带？的url
 `this.$router.push({path:'/',query:{search:'cjs'}})`
+## 命名路由与重定向和别名
+### replace替换页面
+语法与跳转稍有不同：
+`<button @click="replacePage">replace替换页面</button>`
+`this.$router.replace({path:'/',query:{search:'cyu'}}) `
+用这种方法跳转页面实际上是替换页面，在浏览器上后退不会返回原来页面
+### go跳转
+相当于浏览器上的前进后退
+```
+<button @click="$router.go(1)">前进</button>
+<button @click="$router.go(-1)">后退</button>
+```
+### 命名视图
+在App.vue中这样写
+`<router-view name="ShopTop"></router-view>`
+`<router-view name="ShopFooter"></router-view>`
+在路由文件中这样写,名称相同的组件会被引入到一个页面中
+```
+ {
+    path:'/shop',
+    components:{
+      default:ShopMain,
+      ShopTop:ShopTop,
+      ShopFooter:ShopFooter
+    }
+  }
+```
+### 重定向和别名
+
+1.重定向 ---将mall重定向到shop
+```
+{
+    path:'/mall',
+    redirect:(to)=>{return {path:'/shop'}}
+    //redirect:'/shop' 也可以这样写
+  }
+```
+2.取别名--直接在路由定义的时候取个别名，就可以直接根据别名跳转页面
+可以取多个别名，直接alias后面接数组
+  `  alias:'/votai',`
+  `  alias:['/votai','/angrui'],`
+  
+## 路由模式和路由守卫
+### 两种模式
+1. history: createWebHashHistory(),
+   http://localhost:3000/#/angrui
+2. history:createWebHistory(),
+   http://localhost:3000/angrui
+    看似正常，但是每次刷新都会重新从主页面开始反应。会给服务器带来压力，可以在服务器做相关配置解决问题。
+### 守卫
+判断跳转的条件，符合就跳转，不符合就返回原页面
+```
+router.beforeEach((to,from,next)=>{
+  console.log(to);
+  console.log(from);
+  next(); //有第三个参数，并调用正常跳转，如果没有则不跳转
+  return false; //停止跳转
+})
+```
+单个页面的路由可以配置beforeEnter
+只有进入page页面时才调用
+```
+ {
+    path:'/page',
+    component:Page,
+    beforeEnter:(to,from)=>{
+      console.log('brforeEach');
+    }
+
+  }
+```
+声明周期函数三个
+beforeRouteEnter，beforeRouteUpdate，beforeRouteLeave

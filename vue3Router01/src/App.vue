@@ -9,7 +9,10 @@
   </p>
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
+  <router-view name="ShopTop"></router-view>
   <router-view></router-view>
+  <router-view name="ShopFooter"></router-view>
+
 </template>
 
 <script>
