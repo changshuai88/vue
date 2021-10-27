@@ -246,3 +246,145 @@ npm install vue-router@4
 若是不成功，可以重新安装以下代码，再安装路由
 cnpm install
 cnpm install vue-router@4
+
+
+## 用框架vite创建的项目注意修改路由中的配置信息
+在router文件夹下创建index.js,代码如下：
+```
+import {createRouter,createWebHashHistory} from 'vue-router'
+import Home from '../components/Home.vue'
+import About from '../components/About.vue'
+import News from '../components/News.vue'
+
+// 1. Define route components.
+// These can be imported from other files
+// const Home = { template: '<div>Home</div>' }
+// const About = { template: '<div>About</div>' }
+
+// 2. Define some routes
+// Each route should map to a component.
+// We'll talk about nested routes later.
+const routes = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  {
+    //此处的id为自定义的参数，可以修改，在url中输入的时候需要添加，浏览器才能跳转
+    path:'/news/:id',  
+    component:News
+  }
+]
+
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = createRouter({
+// 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: createWebHashHistory(),
+  routes, // short for `routes: routes`
+})
+
+export default router
+```
+## 在App.vue 文件文件中，输入如下代码：
+```
+<template>
+  <h1>Hello App!</h1>
+  <p>
+    <!-- use the router-link component for navigation. -->
+    <!-- specify the link by passing the `to` prop. -->
+    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/about">Go to About</router-link>
+  </p>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
+</template>
+```
+##  $route 为路由的对象可以获取URL中的数据
+```
+<template>
+    <h1>新闻页{{$route.params.id}}</h1>
+</template>
+
+<script>
+export default {
+    mounted(){
+        // $route 为路由的对象可以获取URL中的数据
+        console.log(this.$route);
+    },
+    setup() {
+        
+    },
+}
+</script>
+```
+## 找不到页面的时候显示页面
+路由配置path 如下，(.*)为正则，匹配不到已经定义的页面的时候显示本页面
+    path:'/:path(.*)',
+NotFound为自定义的页面的，显示内容可以自定义
+    component:NotFound
+
+## 路由中正则的使用
+- 数字参数 path:'/article/:id(\\d+)',  
+- 多个参数 path:'/films/:id+'/path:'/films/:id*'
+- +是至少有一个参数
+- *可有可没有参数也可以有多个参数也可以重复
+- ？是有或者没有不可以重复
+
+## 嵌套路由
+
+就是在路由下面在嵌套一个路由，例如在user路由下在嵌套如下：
+url:/user/hengban或者，/user/shubang
+也可以为user后面加上id，path:/user/:id,
+则url为：/user/13/hengban或者/user/789/shubang
+```
+{
+     path:'/user',
+     component:User,
+     children:[
+       {
+         path:'hengban',
+         component:Hengban
+       },
+       {
+         path:'shuban',
+         component:Shuban
+       }
+     ]
+  }
+```
+## 页面跳转 
+### router-link
+在页面中加入<router-link to="/">首页</router-link>
+### 通过js跳转页面
+1.第一种写法
+```
+<template>
+    <h1>page  页面</h1>
+    <button @click="goPage">首页</button>
+</template>
+
+<script>
+export default {
+    setup() {
+        
+    },
+    methods:{
+        goPage(){
+           // console.log('跳转到首页');
+           // console.log(this.$router);
+            this.$router.push('/')
+        }
+    }
+}
+</script>
+```
+2.第二种写法
+`this.$router.push({path:'/about'})`
+3.携带参数跳转
+`this.$router.push({path:'/news/123456'})`
+4.如果路由设置了name属性
+`this.$router.push({name:'news',params:{id:123456}})`
+5.返回带？的url
+`this.$router.push({path:'/',query:{search:'cjs'}})`
