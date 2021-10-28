@@ -461,3 +461,61 @@ router.beforeEach((to,from,next)=>{
 ```
 声明周期函数三个
 beforeRouteEnter，beforeRouteUpdate，beforeRouteLeave
+
+# 状态管理
+1.全局状态管理，在根目录下创建store文件夹创建index.js文件，写入如下代码：
+```
+import { reactive } from 'vue'
+
+const store={
+    state:reactive({
+        message:'helloworld'
+    }),
+    setMessage(value){
+        this.state.message=value;
+    }
+}
+
+export default store
+```
+2.在主页面App.vue中引入文件，并利用provide提供出去
+```
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+import store from './store/index.js'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  },
+  provide:{
+    store
+  }
+}
+</script>
+```
+3.在需要的页面inject进来(HelloWorld.vue)
+```
+<template>
+  <h1>{{ store.state.message }}</h1>
+  <button @click="store.setMessage('cjs')">count is: {{ count }}</button>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  data() {
+    return {
+      count: 0
+    }
+  },
+  inject:['store']
+}
+</script>
+```
+
+# 使用axios

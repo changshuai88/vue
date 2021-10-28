@@ -100,7 +100,7 @@ router.beforeEach((to,from,next)=>{
   console.log(to);
   console.log(from);
   next(); //有第三个参数，并调用正常跳转，如果没有则不跳转
-  return false; //停止跳转
+  // return false; //停止跳转
 })
 
 export default router
