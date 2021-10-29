@@ -10,9 +10,6 @@ import axios from 'axios'
 
 export default {
   name: 'App',
-  components: {
-  
-  },
   provide:{
     store
   },
@@ -23,13 +20,26 @@ export default {
     //   store.setDzLsit(result.result)
     //   console.log(result);
     // })
-    // console.log(axios);
+    // console.log(axios.get(api));
+    // const axios = require('axios')
     axios.get(api).then((result)=>{
       console.log(result);
     })
-    return {
-      store
-    }
+  
+    // axios.get(api)
+    //         .then(function (response) {
+    //             // handle success
+    //             console.log(response);
+               
+    //         })
+    //         .catch(function (error) {
+    //             // handle error
+    //             console.log(error);
+    //         })
+    //         .then(function () {
+    //             // always executed
+    //         });
+    return { store}
   }
 
 }
