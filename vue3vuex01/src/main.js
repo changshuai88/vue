@@ -1,14 +1,10 @@
-import { createApp,reactive } from 'vue'
+import {createApp,reactive } from 'vue'
 import App from './App.vue'
 import './index.css'
+const app = createApp(App);
 
-const store={
-    state:reactive({
-        message:'helloworld'
-    }),
-    setMessage(value){
-        this.state.message=value;
-    }
-}
+import axios from "axios";
+app.config.globalProperties.$axios = axios;
 
-createApp(App).mount('#app')
+
+app.mount('#app')
