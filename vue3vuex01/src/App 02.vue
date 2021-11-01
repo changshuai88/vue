@@ -18,7 +18,6 @@ export default {
   setup(){
     let api='https://api.apiopen.top/getJoke?page=1&count=10&type=text'
     // fetch(api).then(res=>res.json()).then(result=>{
-
     //   store.setDzLsit(result.result)
     //   console.log(result);
     // })
