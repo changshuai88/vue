@@ -7,21 +7,16 @@
 
 <script>
 
-import { reactive, getCurrentInstance, onMounted } from "vue"
+import axios from 'axios'
 
 export default {
-  setup() {
-    let { proxy } = getCurrentInstance();
 
-    let data = reactive({
-      name: "hello"
-    });
+  data() {
+    let api='https://api.apiopen.top/getJoke?page=1&count=10&type=text'
+    axios.get(api).then((result)=>{
+      console.log(result);
+    })
+}
 
-    onMounted(() => {
-      console.log(proxy.$axios);
-    });
-
-    return { data, proxy };
-  }
 }
 </script>
