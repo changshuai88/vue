@@ -1,9 +1,9 @@
 <template>
   <div id="nav">
-    <router-link to="/">网站首页</router-link> |
-    <router-link to="/about">关于我们</router-link>|
-    <router-link to="/goods">产品中心</router-link>|
-    <router-link to="/news">新闻中心</router-link>|
+    <router-link to="/">网站首页</router-link>
+    <router-link to="/about">关于我们</router-link>
+    <router-link to="/goods">产品中心</router-link>
+    <router-link to="/news">新闻中心</router-link>
     <router-link to="/contact">联系我们</router-link>
   </div>
   <router-view/>
@@ -19,12 +19,14 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
 
   a {
+
     font-weight: bold;
     color: #2c3e50;
-
+    display: inline-block;
+    padding: 5px 15px;
     &.router-link-exact-active {
       color: #42b983;
     }
