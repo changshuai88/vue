@@ -7,11 +7,20 @@
     <li><img src="http://img4.yun300.cn/repository/image/-RnBPFpbRJqcFMui073kPQ.jpg?tenantId=132892&viewType=1" alt=""></li>
   </ul>
 </div>
+  <img :src="imgsrc" alt="">
 </template>
 
 <script>
 export default {
+  name: 'banner',
+  data (){
+    return {
+      imgsrc: require('assets/images/1.jpeg'),
+    },
+  },
+  computed:{
 
+  }
 };
 </script>
 
