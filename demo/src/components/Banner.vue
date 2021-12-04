@@ -1,26 +1,7 @@
 <template>
-  <button class="btn">111</button>
+  <h1>轮播图</h1>
   <div class="b_contain">
-    <!-- <ul>
-      <li>
-        <img
-          src="http://img4.yun300.cn/repository/image/-RnBPFpbRJqcFMui073kPQ.jpg?tenantId=132892&viewType=1"
-          alt=""
-        />
-      </li>
-      <li>
-        <img
-          src="http://img4.yun300.cn/repository/image/-RnBPFpbRJqcFMui073kPQ.jpg?tenantId=132892&viewType=1"
-          alt=""
-        />
-      </li>
-      <li>
-        <img
-          src="http://img4.yun300.cn/repository/image/-RnBPFpbRJqcFMui073kPQ.jpg?tenantId=132892&viewType=1"
-          alt=""
-        />
-      </li>
-    </ul> -->
+    <img src="~assets/images/1.jpeg" alt="" />
   </div>
   <img :src="imgsrc" alt="" />
 </template>

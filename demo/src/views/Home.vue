@@ -7,10 +7,23 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue';
-import Banner from '../components/Banner.vue';
+import { onMounted } from "vue";
+import { getHomeAllData } from "network/home";
+import Banner from "../components/Banner.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  setup() {
+    onMounted(() => {
+      getHomeAllData()
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log("err");
+        });
+    });
+  },
   components: {
     Banner,
   },

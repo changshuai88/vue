@@ -6,10 +6,11 @@
     <router-link to="/news">新闻中心</router-link>
     <router-link to="/contact">联系我们</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
+@import "assets/css/base.css";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +23,6 @@
   padding: 10px;
 
   a {
-
     font-weight: bold;
     color: #2c3e50;
     display: inline-block;
