@@ -7,3 +7,6 @@ export function getHomeAllData() {
     // params: {}
   })
 }
+export function add(a,b){
+  console.log(a+b);
+}

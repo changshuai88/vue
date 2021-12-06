@@ -8,13 +8,14 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue';
 import { onMounted } from "vue";
-import { getHomeAllData } from "network/home";
+import { getHomeAllData, add } from "network/home";
 import Banner from "../components/Banner.vue";
 
 export default {
   name: "Home",
   setup() {
     onMounted(() => {
+      add(1, 2);
       getHomeAllData()
         .then((res) => {
           console.log(res);
