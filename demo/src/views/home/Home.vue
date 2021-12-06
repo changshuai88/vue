@@ -9,7 +9,7 @@
 // import HelloWorld from '@/components/HelloWorld.vue';
 import { onMounted } from "vue";
 import { getHomeAllData, add } from "network/home";
-import Banner from "../components/Banner.vue";
+import Banner from "components/Banner.vue";
 
 export default {
   name: "Home",
