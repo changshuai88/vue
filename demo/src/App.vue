@@ -3,23 +3,23 @@
   <div id="nav">
     <router-link class="tab-bar-item" to="/">
       <div class="icon"><i class="iconfont icon-home"></i></div>
-      <div>网站首页</div>
+      <div>首页</div>
     </router-link>
     <router-link class="tab-bar-item" to="/about">
       <div class="icon"><i class="iconfont icon-aboutus"></i></div>
-      <div>关于我们</div>
+      <div>公司</div>
     </router-link>
     <router-link class="tab-bar-item" to="/goods">
       <div class="icon"><i class="iconfont icon-goods_new_light"></i></div>
-      <div>产品中心</div>
+      <div>产品</div>
     </router-link>
     <router-link class="tab-bar-item" to="/news">
       <div class="icon"><i class="iconfont icon-news-filling"></i></div>
-      <div>新闻中心</div>
+      <div>新闻</div>
     </router-link>
     <router-link class="tab-bar-item" to="/contact">
       <div class="icon"><i class="iconfont icon-contact"></i></div>
-      <div>联系我们</div>
+      <div>电话</div>
     </router-link>
   </div>
 </template>
@@ -36,12 +36,14 @@
 }
 
 #nav {
+  background-color: #f6f6f6;
   padding: 10px;
   display: flex;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
+  box-shadow: 0 -3px 1px rgba($color: #d3d0d0, $alpha: 1);
 
   a {
     color: var(--color-text);
