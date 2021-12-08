@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <nav-bar>
-      <template v-slot:left>&lt;</template>
-      <template v-slot:default>图书兄弟</template>
+      <!-- <template v-slot:left>&lt;</template> -->
+      <template v-slot:default>天工平地机配件</template>
     </nav-bar>
   </div>
 </template>

@@ -1,13 +1,27 @@
 <template>
   <div class="nav-bar">
-    <div class="left"><slot name="left"></slot></div>
+    <div class="left" @click="fhui">
+      <slot name="left"><img src="~assets/images/left.png" alt="" /></slot>
+    </div>
     <div class="center"><slot>GoodsShop</slot></div>
     <div class="right"><slot name="right"></slot></div>
   </div>
 </template>
 
 <script>
-export default {};
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const router = useRouter();
+    const fhui = () => {
+      router.go(-1);
+    };
+    return {
+      fhui,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -28,6 +42,10 @@ export default {};
 .left,
 .right {
   width: 60px;
+}
+.left img {
+  width: 45px;
+  padding: 10px;
 }
 .center {
   flex: 1;

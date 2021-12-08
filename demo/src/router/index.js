@@ -11,11 +11,17 @@ const routes = [
     path: '/',
     name: 'DefaultHome',
     component: Home,
+    meta: {
+      title: 'VOTAI-首页',
+    },
   },
   {
     path: '/home',
     name: 'Home',
     component: Home,
+    meta: {
+      title: 'VOTAI-首页',
+    },
   },
   {
     path: '/about',
@@ -25,6 +31,9 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
     component: About,
+    meta: {
+      title: 'VOTAI-关于我们',
+    },
   },
   {
     path: '/news',
@@ -33,6 +42,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: News,
+    meta: {
+      title: 'VOTAI-新闻',
+    },
   },
   {
     path: '/goods',
@@ -41,6 +53,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: Goods,
+    meta: {
+      title: 'VOTAI-配件',
+    },
   },
   {
     path: '/contact',
@@ -49,6 +64,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: Contact,
+    meta: {
+      title: 'VOTAI-联系方式',
+    },
   },
 ];
 
@@ -56,5 +74,10 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  next();
+  document.title = to.meta.title;
+})
 
 export default router;
