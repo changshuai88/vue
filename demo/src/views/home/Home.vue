@@ -4,6 +4,9 @@
       <!-- <template v-slot:left>&lt;</template> -->
       <template v-slot:default>天工平地机配件</template>
     </nav-bar>
+    <div class="banner">
+      <img src="~assets/images/1.jpeg" alt="" />
+    </div>
   </div>
 </template>
 
@@ -33,3 +36,7 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.banners img {
+}
+</style>
