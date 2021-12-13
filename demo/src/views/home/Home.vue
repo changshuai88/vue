@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <nav-bar>
       <!-- <template v-slot:left>&lt;</template> -->
       <template v-slot:default>天工平地机配件</template>
@@ -37,6 +37,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.banners img {
+.banners {
+  width: 100%;
+  img {
+    width: 100%;
+    height: auto;
+    margin-top: 45px;
+  }
 }
 </style>
