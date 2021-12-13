@@ -7,6 +7,7 @@
     <div class="banner">
       <img src="~assets/images/1.jpeg" alt="" />
     </div>
+    <Recommend />
   </div>
 </template>
 
@@ -16,6 +17,7 @@
 // import { onMounted } from "vue";
 // import { getHomeAllData, add } from "network/home";
 import NavBar from "components/common/navbar/NavBar.vue";
+import Recommend from "./ChildComps/Recommend.vue";
 
 export default {
   name: "Home",
@@ -33,12 +35,13 @@ export default {
   },
   components: {
     NavBar,
+    Recommend,
   },
 };
 </script>
 <style lang="scss" scoped>
-.banners {
-  width: 100%;
+.banner {
+  // width: 100%;
   img {
     width: 100%;
     height: auto;
