@@ -15,13 +15,14 @@
     <script>
         const h1 = document.querySelector('h1');
         console.log(h1);
-        let api = 'https://api.apiopen.top/getJoke?page=1&count=10&type=text';
+        // let api = 'https://api.apiopen.top/getJoke?page=1&count=10&type=text';
+        let api = 'http://www.changjinshuai.cn/api_pdo.php';
         // Make a request for a user with a given ID
         axios.get(api)
             .then(function (response) {
                 // handle success
                 console.log(response);
-                h1.innerHTML = response.data.result[0].text;
+                h1.innerHTML = response.data[0].content;
             })
             .catch(function (error) {
                 // handle error
