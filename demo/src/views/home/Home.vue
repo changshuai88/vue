@@ -8,30 +8,39 @@
       <img src="~assets/images/1.jpeg" alt="" />
     </div>
     <Recommend />
+    <h2>{{ name }}</h2>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue';
-// import { onMounted } from "vue";
-// import { getHomeAllData, add } from "network/home";
+import { onMounted, ref } from "vue";
+import { getHomeAllData } from "network/home";
 import NavBar from "components/common/navbar/NavBar.vue";
 import Recommend from "./ChildComps/Recommend.vue";
 
 export default {
   name: "Home",
   setup() {
-    // onMounted(() => {
-    //   add(1, 2);
-    //   getHomeAllData()
-    //     .then((res) => {
-    //       console.log(res);
-    //     })
-    //     .catch((err) => {
-    //       console.log("err");
-    //     });
-    // });
+    const name = ref([]);
+    onMounted(() => {
+      // add(1, 2);
+      getHomeAllData()
+        .then((res) => {
+          // console.log(res);
+          name.value = res;
+          // console.log(name);
+          // return name;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // return name;
+    });
+    return {
+      name,
+    };
   },
   components: {
     NavBar,

@@ -21,8 +21,8 @@
         axios.get(api)
             .then(function (response) {
                 // handle success
-                console.log(response);
-                h1.innerHTML = response.data[0].content;
+                console.log(response.data);
+                h1.innerHTML = response.data;
             })
             .catch(function (error) {
                 // handle error
