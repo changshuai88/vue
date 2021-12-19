@@ -8,7 +8,10 @@
       <img src="~assets/images/1.jpeg" alt="" />
     </div>
     <Recommend />
-    <h2>{{ name }}</h2>
+    <h2 v-for="(item, i) in names" :key="i">
+      {{ item.content }}
+      <hr />
+    </h2>
   </div>
 </template>
 
@@ -23,14 +26,14 @@ import Recommend from "./ChildComps/Recommend.vue";
 export default {
   name: "Home",
   setup() {
-    const name = ref([]);
+    const names = ref([]);
     onMounted(() => {
       // add(1, 2);
       getHomeAllData()
         .then((res) => {
           // console.log(res);
-          name.value = res;
-          // console.log(name);
+          names.value = res;
+          console.log(names);
           // return name;
         })
         .catch((err) => {
@@ -39,7 +42,7 @@ export default {
       // return name;
     });
     return {
-      name,
+      names,
     };
   },
   components: {
